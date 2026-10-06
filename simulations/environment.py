@@ -17,10 +17,14 @@ class Environment:
             t: Time in seconds.
             Returns the outside temperature in degrees Celsius.
         '''
-        # --- Student code starts here ---
-        # Hint: Make sure you make the temperature sinusoidal and take into account the door event!
-        # Hint, use self.amplitude, self.period_s, self.door_start_s, self.door_duration_s, self.door_drop_C, self.base to make use of the values defined in the dataclass
+       # 1. Calculate the standard sinusoidal outside temperature
+        # We use 2 * pi * (t / period) to correctly scale the time to a full sine wave cycle
+        current_temp = self.base + self.amplitude * math.sin(2 * math.pi * (t / self.period_s))
         
-        # --- Student code ends here ---
+        # 2. Check if a door drop event is currently happening
+        end_time = self.door_start_s + self.door_duration_s
+        if self.door_start_s <= t <= end_time:
+            current_temp -= self.door_drop_C
+            
+        return current_temp
         
-        return 0.0 # remove when code is added

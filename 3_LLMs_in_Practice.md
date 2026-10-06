@@ -59,6 +59,8 @@ Use AI to familiarize yourself with the provided codebase. Understand how the di
 
 > Example prompt: "Explain the file structure of this project's main.py and how the different modules interact with each other."
 
+![alt text](image.png)
+
 ## Task 2 Implement the `onoff` controller in `assignment-files/controllers/onoff.py`
 
 This controller should turn the heater on when the temperature is below the setpoint minus half the deadband, and turn it off when the temperature is above the setpoint plus half the deadband.
